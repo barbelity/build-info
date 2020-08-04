@@ -64,27 +64,27 @@ environment:
 #      TEST_SUIT:
 #        "./gradlew clean build-info-extractor-npm:test"
 
-    # Go Tests
-    - job_name: go_extractor_win
-      job_group: general
-      appveyor_build_worker_image: Visual Studio 2019
-      JAVA_HOME: C:\Program Files\Java\jdk1.8.0
-      TEST_SUIT:
-        "gradlew.bat clean build-info-extractor-go:test"
-    - job_name: go_extractor_linux
-      job_group: general
-      appveyor_build_worker_image: Ubuntu
-      TEST_SUIT:
-        "./gradlew clean build-info-extractor-go:test"
+#    # Go Tests
+#    - job_name: go_extractor_win
+#      job_group: general
+#      appveyor_build_worker_image: Visual Studio 2019
+#      JAVA_HOME: C:\Program Files\Java\jdk1.8.0
+#      TEST_SUIT:
+#        "gradlew.bat clean build-info-extractor-go:test"
+#    - job_name: go_extractor_linux
+#      job_group: general
+#      appveyor_build_worker_image: Ubuntu
+#      TEST_SUIT:
+#        "./gradlew clean build-info-extractor-go:test"
 
     # Pip Tests
-    - job_name: pip_extractor_win
-      job_group: pip
-      appveyor_build_worker_image: Visual Studio 2019
-      JAVA_HOME: C:\Program Files\Java\jdk1.8.0
-      BITESTS_ARTIFACTORY_PIP_ENV: C:\\projects\\build-info\\pip-venv\\Scripts
-      TEST_SUIT:
-        "gradlew.bat clean build-info-extractor-pip:test"
+#    - job_name: pip_extractor_win
+#      job_group: pip
+#      appveyor_build_worker_image: Visual Studio 2019
+#      JAVA_HOME: C:\Program Files\Java\jdk1.8.0
+#      BITESTS_ARTIFACTORY_PIP_ENV: C:\\projects\\build-info\\pip-venv\\Scripts
+#      TEST_SUIT:
+#        "gradlew.bat clean build-info-extractor-pip:test"
     - job_name: pip_extractor_linux
       job_group: pip
       appveyor_build_worker_image: Ubuntu
@@ -123,7 +123,7 @@ for:
       only:
         - job_group: pip
     test_script:
-      - sh: "python -m venv pip-venv"
+      - sh: "python3 -m venv pip-venv"
       - sh: "$TEST_SUIT"
       - cmd: "C:\\Python37-x64\\python -m venv pip-venv"
       - cmd: "%TEST_SUIT%"
