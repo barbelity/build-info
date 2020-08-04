@@ -88,7 +88,7 @@ environment:
     - job_name: pip_extractor_linux
       job_group: pip
       appveyor_build_worker_image: Ubuntu
-      PYTHON: $HOME/venv3.7
+      PYTHON: $HOME/venv3.8
       BITESTS_ARTIFACTORY_PIP_ENV: /home/appveyor/projects/build-info/pip-venv/bin
       TEST_SUIT:
         "./gradlew clean build-info-extractor-pip:test"
@@ -123,7 +123,7 @@ for:
       only:
         - job_group: pip
     test_script:
-      - sh: "python3 -m venv pip-venv"
+      - sh: "python -m venv pip-venv"
       - sh: "$TEST_SUIT"
       - cmd: "C:\\Python37-x64\\python -m venv pip-venv"
       - cmd: "%TEST_SUIT%"
